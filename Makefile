@@ -416,6 +416,7 @@ endif
 
 .PHONY: argosay
 argosay:
+	cd test/e2e/images/argosay/v1 && docker build . -t argoproj/argosay:v1
 	cd test/e2e/images/argosay/v2 && docker build . -t argoproj/argosay:v2
 ifeq ($(K3D),true)
 	k3d image import -c $(K3D_CLUSTER_NAME) argoproj/argosay:v2
